@@ -1,0 +1,63 @@
+<div class="container">
+	<h1>Register</h1>
+	<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+		<div class="form-group row col-lg-8">
+			<label for="email">Parent's Email (will be used as username)</label>
+			<input type="text" class="form-control" id="email" [(ngModel)]="email" name="email" required>
+		</div>
+		<div class="form-group row col-lg-8">
+			<label for="password">Password</label>
+			<input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
+		</div>
+		<div class="form-group row col-lg-8">
+			<label for="passwordCheck">Re-enter Password</label>
+			<input type="password" class="form-control" id="passwordCheck" [(ngModel)]="passwordCheck" name="passwordCheck" required>
+		</div>
+		<div class="form-group row col-lg-8">
+			<label for="fathersName">Father's Full Name</label>
+			<input type="text" class="form-control" id="fathersName" [(ngModel)]="fathersName" name="fathersName" required>
+		
+			<label for="fatherPhone">Father's Phone Number</label>
+			<input type="text" placeholder="(123) 456-7890" class="form-control" id="fathersPhone" [(ngModel)]="fathersPhone" name="fathersPhone" [textMask]="{mask: mask}"/>
+		</div>
+		<div class="form-group row col-lg-8">
+			<label for="mothersName">Mother's Full Name</label>
+			<input type="text" class="form-control" id="mothersName" [(ngModel)]="mothersName" name="mothersName" required>
+			
+			<label for="motherPhone">Mother's Phone Number</label>
+			<input type="text" placeholder="(123) 456-7890" class="form-control" id="mothersPhone" [(ngModel)]="motherPhone" name="mothersPhone" [textMask]="{mask: mask}"/>
+		</div>
+		<div class="form-group row col-lg-8">
+			<label for="emergencyName">Emergency Contact Person's Full Name (In case of unavailibility of parents)</label>
+			<input type="text" class="form-control" id="emergencyName" [(ngModel)]="emergencyName" name="emergencyName" required>
+			
+			<label for="emergencyPhone">Emergency Contact Phone Number</label>
+			<input type="text" placeholder="(123) 456-7890" class="form-control" id="emergencyPhone" [(ngModel)]="emergencyPhone" name="emergencyPhone" [textMask]="{mask: mask}"/>
+		</div>
+		
+		<div class="form-group row col-lg-8">
+			<label for="firstname">Child's First Name</label>
+			<input type="text" class="form-control" id="firstname" [(ngModel)]="firstname" name="firstname" required>
+			
+			<label for="lastname">Child's Last Name</label>
+			<input type="text" class="form-control" id="lastname" [(ngModel)]="lastname" name="lastname" required>
+			
+			<label for="middlename">Child's Middle Name</label>
+			<input type="text" class="form-control" id="middlename" [(ngModel)]="middlename" name="middlename" required>
+			
+		</div>
+		<div class="form-group row col-lg-4">
+				<label for="gender">Gender</label>
+				<select class="form-control" id="gender" [(ngModel)]="gender" name="gender" required>
+					<option>Male</option>
+					<option>Female</option>
+				</select>
+    	</div>
+		<div class="from-group row col-lg-8">
+			<app-datepicker></app-datepicker>
+		</div>
+		
+		<button type="submit" [disabled]="!registerForm.form.valid" class="btn btn-success">Submit</button>
+		<div [hidden]="registerForm.form.valid" style="background: red">Please fill in all fields</div>
+	</form>
+</div>

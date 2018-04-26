@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Muslim Sports League</a>
+      <button class="navbar-toggler" type="button" (click)="toggleState()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" [ngClass]="{ 'show': isIn }">
+        <ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="#">Features</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Pricing</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">About</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav my-lg-0">
+			<li class="nav-item active">
+				<a class="nav-link" routerLink="/register" routerLinkActive="active" role="button">Sign Up</a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" routerLink="/login" routerLinkActive="active" role="button">Login</a>
+			</li>
+		</ul>
+	 </div>
+</nav>

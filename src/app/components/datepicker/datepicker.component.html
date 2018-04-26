@@ -1,0 +1,6 @@
+<label for="dob">Child's Date of Birth</label>
+<mat-form-field>
+	<input matInput [matDatepicker]="picker" placeholder="1/1/1997">
+	<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+	<mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+</mat-form-field>
