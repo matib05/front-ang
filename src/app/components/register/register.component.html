@@ -56,8 +56,11 @@
 		<div class="from-group row col-lg-8">
 			<app-datepicker></app-datepicker>
 		</div>
-		
-		<button type="submit" [disabled]="!registerForm.form.valid" class="btn btn-success">Submit</button>
-		<div [hidden]="registerForm.form.valid" style="background: red">Please fill in all fields</div>
+		<div>
+            <button type="submit" [disabled]="!registerForm.form.valid" class="btn btn-success">Submit</button>
+        </div>
+        <br />
+        <span [hidden]="registerForm.form.valid" class="alert alert-danger">Please fill in all fields</span>
+        
 	</form>
 </div>

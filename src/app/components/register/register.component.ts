@@ -7,32 +7,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
   mask: any[] = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-	email: String;
-	password: String;
-	passwordCheck: String;
-	fathersName: String;
-	fathersPhone: String;
-	mothersName: String;
-	motherPhone: String;
-	emergencyName: String;
-	emergencyPhone: String;
-	firstname: String;
-	lastname: String;
-	middlename: String;
-	gender: String;
-	dob: Date;
+  email: String;
+  password: String;
+  passwordCheck: String;
+  fathersName: String;
+  fathersPhone: String;
+  mothersName: String;
+  motherPhone: String;
+  emergencyName: String;
+  emergencyPhone: String;
+  firstname: String;
+  lastname: String;
+  middlename: String;
+  gender: String;
+  // TODO: correct data type needed
+  dob: Date;
 
   constructor() { }
 
   ngOnInit() {
+    this.checkPasswords();
+  }
+
+  checkPasswords() {
+      if (this.password !== this.passwordCheck) {
+          console.log('passwords do not match');
+          // TODO: make a password checker
+      }
   }
 
   onSubmit() {
     console.log(`email ${this.email}, password: ${this.password}, passwordCheck: ${this.passwordCheck},
-fathersName: ${this.fathersName}, fathersPhone: ${this.fathersPhone}, mothersName: ${this.mothersName},
-motherPhone: ${this.motherPhone}, emergencyName: ${this.emergencyName}, emergencyPhone: ${this.emergencyPhone},
-firstname: ${this.firstname}, middlename: ${this.middlename}, lastname: ${this.middlename}, gender: ${this.gender},
-dob: ${this.dob.toString()}`)
+    fathersName: ${this.fathersName}, fathersPhone: ${this.fathersPhone}, mothersName: ${this.mothersName},
+    motherPhone: ${this.motherPhone}, emergencyName: ${this.emergencyName}, emergencyPhone: ${this.emergencyPhone},
+    firstname: ${this.firstname}, middlename: ${this.middlename}, lastname: ${this.middlename}, gender: ${this.gender},
+    dob: ${this.dob.toString()}`);
   }
 
 }
