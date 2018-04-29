@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Dob } from '../dob';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
   mask: any[] = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  startDate = new Date(1997, 0, 1);
   email: String;
   password: String;
   passwordCheck: String;
@@ -20,10 +23,9 @@ export class RegisterComponent implements OnInit {
   lastname: String;
   middlename: String;
   gender: String;
-  // TODO: correct data type needed
-  dob: Date;
+  dob: String;
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
     this.checkPasswords();
@@ -36,12 +38,16 @@ export class RegisterComponent implements OnInit {
       }
   }
 
+  saveDate(date: Date) {
+      this.dob = date.toString();
+  }
+
   onSubmit() {
     console.log(`email ${this.email}, password: ${this.password}, passwordCheck: ${this.passwordCheck},
     fathersName: ${this.fathersName}, fathersPhone: ${this.fathersPhone}, mothersName: ${this.mothersName},
     motherPhone: ${this.motherPhone}, emergencyName: ${this.emergencyName}, emergencyPhone: ${this.emergencyPhone},
     firstname: ${this.firstname}, middlename: ${this.middlename}, lastname: ${this.middlename}, gender: ${this.gender},
-    dob: ${this.dob.toString()}`);
+    dob: ${this.dob}`);
   }
 
 }

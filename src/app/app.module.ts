@@ -22,8 +22,6 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './components/register/register.component';
 
-import { DatepickerComponent } from './components/datepicker/datepicker.component';
-
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -41,8 +39,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent,
-    DatepickerComponent
+    RegisterComponent
   ],
   imports: [
     RouterModule.forRoot(
