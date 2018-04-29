@@ -18,9 +18,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { RegisterComponent } from './components/register/register.component';
 
 import { AuthService } from './services/auth.service';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterService } from './services/register.service';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
     HttpModule,
 	TextMaskModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+             RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

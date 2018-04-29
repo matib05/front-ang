@@ -3,15 +3,15 @@ import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class AuthService {
+export class RegisterService {
 
   constructor(private http: Http) { }
 
-  authenticateUser(user) {
+  registerUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     console.log(headers);
-    return this.http.post('http://localhost:8090/login', {User:user}, {headers: headers})
+    return this.http.post('http://localhost:8090/register', {User:user}, {headers: headers})
 	  .map((res: Response) => res.json());
   }
 }

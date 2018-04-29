@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { Dob } from '../dob';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +24,7 @@ export class RegisterComponent implements OnInit {
   gender: String;
   dob: String;
 
-  constructor(private auth: AuthService) { }
+  constructor(private register: RegisterService) { }
 
   ngOnInit() {
     this.checkPasswords();
@@ -43,11 +42,31 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    const User = {
+      email: this.email,
+      password: this.password,
+      passwordCheck: this.passwordCheck,
+      fathersName: this.fathersName,
+      fathersPhone: this.fathersPhone,
+      mothersName: this.mothersName,
+      motherPhone: this.motherPhone,
+      emergencyName: this.emergencyName,
+      emergencyPhone: this.emergencyPhone,
+      firstname: this.firstname,
+      lastname: this.lastname,
+      middlename: this.middlename,
+      gender: this.gender,
+      dob: this.dob,
+    };
     console.log(`email ${this.email}, password: ${this.password}, passwordCheck: ${this.passwordCheck},
     fathersName: ${this.fathersName}, fathersPhone: ${this.fathersPhone}, mothersName: ${this.mothersName},
     motherPhone: ${this.motherPhone}, emergencyName: ${this.emergencyName}, emergencyPhone: ${this.emergencyPhone},
     firstname: ${this.firstname}, middlename: ${this.middlename}, lastname: ${this.middlename}, gender: ${this.gender},
     dob: ${this.dob}`);
+
+    this.register.registerUser(User).subscribe(data => {
+       console.log(data);
+    });
   }
 
 }
