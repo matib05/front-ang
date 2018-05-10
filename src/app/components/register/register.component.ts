@@ -15,14 +15,14 @@ export class RegisterComponent implements OnInit {
   fathersName: String;
   fathersPhone: String;
   mothersName: String;
-  motherPhone: String;
+  mothersPhone: String;
   emergencyName: String;
   emergencyPhone: String;
-  firstname: String;
+  /*firstname: String;
   lastname: String;
   middlename: String;
   gender: String;
-  dob: String;
+  dob: String;*/
 
   constructor(private register: RegisterService) { }
 
@@ -38,33 +38,28 @@ export class RegisterComponent implements OnInit {
   }
 
   saveDate(date: Date) {
-      this.dob = date.toString();
+      //this.dob = date.toString();
   }
 
   onSubmit() {
-    const User = {
+    const Parent = {
       email: this.email,
       password: this.password,
       passwordCheck: this.passwordCheck,
       fathersName: this.fathersName,
       fathersPhone: this.fathersPhone,
       mothersName: this.mothersName,
-      motherPhone: this.motherPhone,
+      mothersPhone: this.mothersPhone,
       emergencyName: this.emergencyName,
       emergencyPhone: this.emergencyPhone,
-      firstname: this.firstname,
+      /*firstname: this.firstname,
       lastname: this.lastname,
       middlename: this.middlename,
       gender: this.gender,
-      dob: this.dob,
+      dob: this.dob,*/
     };
-    console.log(`email ${this.email}, password: ${this.password}, passwordCheck: ${this.passwordCheck},
-    fathersName: ${this.fathersName}, fathersPhone: ${this.fathersPhone}, mothersName: ${this.mothersName},
-    motherPhone: ${this.motherPhone}, emergencyName: ${this.emergencyName}, emergencyPhone: ${this.emergencyPhone},
-    firstname: ${this.firstname}, middlename: ${this.middlename}, lastname: ${this.middlename}, gender: ${this.gender},
-    dob: ${this.dob}`);
 
-    this.register.registerUser(User).subscribe(data => {
+    this.register.registerUser(Parent).subscribe(data => {
        console.log(data);
     });
   }
