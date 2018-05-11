@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RegisterService } from '../../services/register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,27 +19,24 @@ export class RegisterComponent implements OnInit {
   mothersPhone: String;
   emergencyName: String;
   emergencyPhone: String;
+  error = false;
+  errorMessage: String;
   /*firstname: String;
   lastname: String;
   middlename: String;
   gender: String;
   dob: String;*/
 
-  constructor(private register: RegisterService) { }
+  constructor(private register: RegisterService, private router: Router) { }
 
   ngOnInit() {
-    this.checkPasswords();
   }
 
-  checkPasswords() {
+  checkPassword() {
       if (this.password !== this.passwordCheck) {
-          console.log('passwords do not match');
-          // TODO: make a password checker
+          return true;
       }
-  }
-
-  saveDate(date: Date) {
-      //this.dob = date.toString();
+      return false;
   }
 
   onSubmit() {
@@ -59,9 +57,15 @@ export class RegisterComponent implements OnInit {
       dob: this.dob,*/
     };
 
-    this.register.registerUser(Parent).subscribe(data => {
-       console.log(data);
-    });
+    //this.register.registerUser(Parent).subscribe(data => {
+       //console.log(data);
+       //if (data.success) {
+           this.router.navigate(['/addchild']);
+       //} else {
+           //this.error = true;
+           //this.errorMessage = data;
+       //}
+    //});
   }
 
 }

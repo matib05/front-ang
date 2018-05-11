@@ -22,10 +22,12 @@ import { RegisterComponent } from './components/register/register.component';
 
 import { AuthService } from './services/auth.service';
 import { RegisterService } from './services/register.service';
+import { AddchildComponent } from './components/addchild/addchild.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'addchild', component: AddchildComponent },
   { path: 'home', component: HomeComponent},
   { path: '',
     redirectTo: '/home',
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddchildComponent
   ],
   imports: [
     RouterModule.forRoot(
