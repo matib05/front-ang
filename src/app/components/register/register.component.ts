@@ -21,11 +21,11 @@ export class RegisterComponent implements OnInit {
   emergencyPhone: String;
   error = false;
   errorMessage: String;
-  /*firstname: String;
-  lastname: String;
-  middlename: String;
+  firstName: String;
+  lastName: String;
+  middleName: String;
   gender: String;
-  dob: String;*/
+  dateOfBirth: Date;
 
   constructor(private register: RegisterService, private router: Router) { }
 
@@ -40,32 +40,32 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    const Parent = {
+    const player = {
       email: this.email,
       password: this.password,
-      passwordCheck: this.passwordCheck,
       fathersName: this.fathersName,
       fathersPhone: this.fathersPhone,
       mothersName: this.mothersName,
       mothersPhone: this.mothersPhone,
       emergencyName: this.emergencyName,
       emergencyPhone: this.emergencyPhone,
-      /*firstname: this.firstname,
-      lastname: this.lastname,
-      middlename: this.middlename,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      middleName: this.middleName,
       gender: this.gender,
-      dob: this.dob,*/
+      dateOfBirth: this.dateOfBirth.toLocaleDateString()
     };
 
-    //this.register.registerUser(Parent).subscribe(data => {
-       //console.log(data);
-       //if (data.success) {
-           this.router.navigate(['/addchild']);
-       //} else {
-           //this.error = true;
-           //this.errorMessage = data;
-       //}
-    //});
+    this.register.registerPlayer(player).subscribe(data => {
+       console.log(data);
+       /*if (data.success) {
+           this.router.navigate(['/dashboard']);
+       } else {
+           this.error = true;
+           this.errorMessage = data;
+       }*/
+       this.router.navigate(['/dashboard']);
+    });
   }
 
 }

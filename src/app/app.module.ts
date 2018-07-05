@@ -22,13 +22,13 @@ import { RegisterComponent } from './components/register/register.component';
 
 import { AuthService } from './services/auth.service';
 import { RegisterService } from './services/register.service';
-import { AddchildComponent } from './components/addchild/addchild.component';
+import { PlayerDashboardComponent } from './components/player-dashboard/player-dashboard.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'addchild', component: AddchildComponent },
   { path: 'home', component: HomeComponent},
+  { path: 'dashboard', component: PlayerDashboardComponent},
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -43,7 +43,7 @@ const appRoutes: Routes = [
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    AddchildComponent
+    PlayerDashboardComponent
   ],
   imports: [
     RouterModule.forRoot(
